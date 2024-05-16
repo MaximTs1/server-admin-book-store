@@ -35,8 +35,8 @@ app.use(cors({
     allowedHeaders: 'Content-Type, Accept, Authorization'
 }));
 
-app.use("/book", bookRoutes);
-app.use("/user", userRoutes);
+app.use("/book", apiLimiter, bookRoutes);
+app.use("/user", apiLimiter, userRoutes);
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
